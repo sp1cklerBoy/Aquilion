@@ -56,7 +56,7 @@
                               VerticalAlignment="Stretch"
                               Background="Transparent"/>
             </Grid>
-            <Border Background="#DDFFFFFF">
+            <Border Background="{StaticResource DefaultPaneColorBrush}">
 
 
                 <Grid>
@@ -69,7 +69,8 @@
                         <TextBlock Text="{Binding ActiveSelectedPageViewModel.Header}"
                            VerticalAlignment="Center"
                            FontSize="16" Margin="20,0"
-                           FontWeight="Bold"/>
+                           FontWeight="Bold"
+                                   Foreground="{StaticResource DefaultColorBrush}"/>
 
                     </StackPanel>
                     <Rectangle Height="0.5"

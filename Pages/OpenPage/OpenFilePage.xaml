@@ -60,60 +60,12 @@
                           FontFamily="Segoe mdl2 assets"
                           Content=""
                           FontSize="16"
-                          Foreground="Black">
-                    <ToggleButton.Template>
-                        <ControlTemplate TargetType="ToggleButton">
-                            <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding Background}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Left"
-                                              Margin="14,0"
-                                              TextElement.Foreground="Black"
-                                              TextElement.FontFamily="{TemplateBinding FontFamily}"
-                                              TextElement.FontSize="{TemplateBinding FontSize}"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsEnabled" Value="True">
-                                    <Setter Property="Background" Value="Transparent"/>
-                                </Trigger>
-                                <EventTrigger RoutedEvent="MouseEnter">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2e9ff"
-                                                        Duration="0:0:0.2"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="MouseLeave">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="Transparent"
-                                                        Duration="0:0:0.2"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="Button.Click">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2d2d2"
-                                                        Duration="0:0:0.1"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <Trigger Property="ToggleButton.IsChecked" Value="True">
-                                    <Setter Property="Content" Value=""/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </ToggleButton.Template>
+                          Foreground="{StaticResource DefaultColorBrush}"
+                              Template="{DynamicResource ShowHidePaneToggleButton}">
                 </ToggleButton>
                 <Border Background="White" Margin="48,0,0,0"/>
                 <TextBlock Margin="48,0,0,0" FontFamily="Segoe UI"
-                           Foreground="Black"
+                           Foreground="{StaticResource DefaultColorBrush}"
                            FontSize="16"
                            FontWeight="Bold"
                            Text="Quick Places"
@@ -126,48 +78,8 @@
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
                      SelectedItem="{Binding SelectedFileEntityViewModel}"
                      Padding="-1"
-                     Foreground="Black">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="Content" Value=""/>
-                        <Setter Property="ToolTip" Value="{Binding Name}"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="ListBoxItem">
-                                    <Border Height="48" Margin="0" Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding Background}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                                        <StackPanel Orientation="Horizontal">
-                                            <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Left"
-                                              Margin="14,0"
-                                              TextElement.Foreground="{TemplateBinding Foreground}"
-                                              TextElement.FontFamily="Segoe mdl2 assets"
-                                              TextElement.FontSize="16"/>
-                                            <TextBlock Margin="4,0" FontFamily="Segoe UI"
-                                                       Foreground="{TemplateBinding Foreground}"
-                                                       FontSize="14"
-                                                       Name="Header"
-                                                       Text="{Binding Name}"
-                                                       VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsEnabled" Value="True">
-                                            <Setter Property="Background" Value="Transparent"/>
-                                        </Trigger>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#d2e9ff"/>
-                                        </Trigger>
-                                        <Trigger Property="IsSelected" Value="True">
-                                            <Setter Property="Background" Value="#77296196"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </ListBox.ItemContainerStyle>
+                     Foreground="{StaticResource DefaultColorBrush}"
+                     ItemContainerStyle="{DynamicResource DirectoryViewListBoxItemStyle}">
                 <b:Interaction.Triggers>
                     <b:EventTrigger EventName="SelectionChanged">
                         <b:InvokeCommandAction Command="{Binding OpenCommand}"
@@ -200,65 +112,8 @@
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
                      SelectedItem="{Binding SelectedFileEntityViewModel}"
                      Foreground="Black"
-                     Padding="-1,-1,-1,-1">
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Setter Property="Content" Value=""/>
-                            <Setter Property="ToolTip" Value="{Binding FullName}"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="ListBoxItem">
-                                        <Border Height="48" Margin="0" Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding Background}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                                            <Grid >
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="48"/>
-                                                    <ColumnDefinition/>
-                                                </Grid.ColumnDefinitions>
-                                                <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Left"
-                                              Margin="14,0"
-                                              TextElement.Foreground="{TemplateBinding Foreground}"
-                                              TextElement.FontFamily="Segoe mdl2 assets"
-                                              TextElement.FontSize="16"/>
-                                                <TextBlock Margin="0,0" Grid.Column="1" FontFamily="Segoe UI"
-                                                       Foreground="{TemplateBinding Foreground}"
-                                                       FontSize="14"
-                                                       Name="Header"
-                                                       Text="{Binding Name}"
-                                                       VerticalAlignment="Center"/>
-
-                                            </Grid>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsEnabled" Value="True">
-                                                <Setter Property="Background" Value="Transparent"/>
-                                            </Trigger>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#d2e9ff"/>
-                                            </Trigger>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="Background" Value="#77296196"/>
-                                            </Trigger>
-                                            <DataTrigger Binding="{Binding Type}" Value="File .TXT">
-                                                <Setter Property="Content" Value=""/>
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding Type}" Value="File .RTF">
-                                                <Setter Property="Content" Value=""/>
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding Type}" Value="File Folder">
-                                                <Setter Property="Content" Value=""/>
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding Type}" Value="Drive">
-                                                <Setter Property="Content" Value=""/>
-                                            </DataTrigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
+                     Padding="-1,-1,-1,-1"
+                        ItemContainerStyle="{DynamicResource DirectoryViewListBoxItemStyle}">
                     <b:Interaction.Triggers>
                         <b:EventTrigger EventName="MouseDoubleClick">
                             <b:InvokeCommandAction Command="{Binding OpenCommand}"
@@ -286,7 +141,7 @@
                                    Text="File:"
                                    Margin="10,0,0,0"
                                    VerticalAlignment="Center"
-                                   Foreground="Black"
+                                   Foreground="{StaticResource DefaultColorBrush}"
                                    FontSize="16"
                                    FontWeight="Bold"/>
                         <TextBox Grid.Column="1"
@@ -298,134 +153,7 @@
                                    FontWeight="Bold"
                                  IsEnabled="{Binding IsSavingMode}"
                                  Name="NameOfNewFile"/>
-                        <StackPanel Grid.Column="2" Orientation="Horizontal">
-                            <Button Height="48"
-                              Width="48"
-                              HorizontalAlignment="Left"
-                          FontFamily="Segoe mdl2 assets"
-                          Content=""
-                          FontSize="16"
-                          Foreground="Black"
-                                    Command="{Binding CloseCommand}"
-                                    CommandParameter="{Binding}">
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding Background}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                                            <ContentPresenter VerticalAlignment="Center" Name="cp"
-                                              HorizontalAlignment="Left"
-                                              Margin="14,0"
-                                              TextElement.Foreground="{TemplateBinding Foreground}"
-                                              TextElement.FontFamily="{TemplateBinding FontFamily}"
-                                              TextElement.FontSize="{TemplateBinding FontSize}"/>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsEnabled" Value="True">
-                                                <Setter Property="Background" Value="Transparent"/>
-                                            </Trigger>
-                                            <EventTrigger RoutedEvent="MouseEnter">
-                                                <BeginStoryboard>
-                                                    <Storyboard>
-                                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2e9ff"
-                                                        Duration="0:0:0.2"/>
-                                                    </Storyboard>
-                                                </BeginStoryboard>
-                                            </EventTrigger>
-                                            <EventTrigger RoutedEvent="MouseLeave">
-                                                <BeginStoryboard>
-                                                    <Storyboard>
-                                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="Transparent"
-                                                        Duration="0:0:0.2"/>
-                                                    </Storyboard>
-                                                </BeginStoryboard>
-                                            </EventTrigger>
-                                            <EventTrigger RoutedEvent="Button.Click">
-                                                <BeginStoryboard>
-                                                    <Storyboard>
-                                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2d2d2"
-                                                        Duration="0:0:0.1"/>
-                                                    </Storyboard>
-                                                </BeginStoryboard>
-                                            </EventTrigger>
-                                            <Trigger Property="IsEnabled" Value="False">
-                                                <Setter TargetName="cp" Property="TextElement.Foreground" Value="LightGray"/>
-                                                <Setter Property="Background" Value="Transparent"/>
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                            <Button Height="48"
-                              Width="48"
-                              HorizontalAlignment="Left"
-                          FontFamily="Segoe mdl2 assets"
-                          Content=""
-                          FontSize="16"
-                          Foreground="Black"
-                                    Command="{Binding TakeFileCommand}">
-                                <Button.CommandParameter>
-                                    <MultiBinding Converter="{valueconverters:MultiCommandParametersConverter}">
-                                        <Binding Path="IsSavingMode"/>
-                                        <Binding Path="SelectedFileEntityViewModel"/>
-                                        <Binding ElementName="NameOfNewFile" Path="Text"/>
-                                    </MultiBinding>
-                                </Button.CommandParameter>
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding Background}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                                            <ContentPresenter VerticalAlignment="Center" Name="cp"
-                                              HorizontalAlignment="Left"
-                                              Margin="14,0"
-                                              TextElement.Foreground="{TemplateBinding Foreground}"
-                                              TextElement.FontFamily="{TemplateBinding FontFamily}"
-                                              TextElement.FontSize="{TemplateBinding FontSize}"/>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsEnabled" Value="True">
-                                                <Setter Property="Background" Value="Transparent"/>
-                                            </Trigger>
-                                            <EventTrigger RoutedEvent="MouseEnter">
-                                                <BeginStoryboard>
-                                                    <Storyboard>
-                                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2e9ff"
-                                                        Duration="0:0:0.2"/>
-                                                    </Storyboard>
-                                                </BeginStoryboard>
-                                            </EventTrigger>
-                                            <EventTrigger RoutedEvent="MouseLeave">
-                                                <BeginStoryboard>
-                                                    <Storyboard>
-                                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="Transparent"
-                                                        Duration="0:0:0.2"/>
-                                                    </Storyboard>
-                                                </BeginStoryboard>
-                                            </EventTrigger>
-                                            <EventTrigger RoutedEvent="Button.Click">
-                                                <BeginStoryboard>
-                                                    <Storyboard>
-                                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2d2d2"
-                                                        Duration="0:0:0.1"/>
-                                                    </Storyboard>
-                                                </BeginStoryboard>
-                                            </EventTrigger>
-                                            <Trigger Property="IsEnabled" Value="False">
-                                                <Setter TargetName="cp" Property="TextElement.Foreground" Value="LightGray"/>
-                                                <Setter Property="Background" Value="Transparent"/>
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                        </StackPanel>
+                        
                     </Grid>
                 </Border>
             </Grid>
@@ -442,58 +170,9 @@
                           FontFamily="Segoe mdl2 assets"
                           Content=""
                           FontSize="16"
-                          Foreground="Black"
-                            Command="{Binding MoveBackCommand}">
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding Background}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                                        <ContentPresenter VerticalAlignment="Center" Name="cp"
-                                              HorizontalAlignment="Left"
-                                              Margin="14,0"
-                                              TextElement.Foreground="{TemplateBinding Foreground}"
-                                              TextElement.FontFamily="{TemplateBinding FontFamily}"
-                                              TextElement.FontSize="{TemplateBinding FontSize}"/>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsEnabled" Value="True">
-                                            <Setter Property="Background" Value="Transparent"/>
-                                        </Trigger>
-                                        <EventTrigger RoutedEvent="MouseEnter">
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2e9ff"
-                                                        Duration="0:0:0.2"/>
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </EventTrigger>
-                                        <EventTrigger RoutedEvent="MouseLeave">
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="Transparent"
-                                                        Duration="0:0:0.2"/>
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </EventTrigger>
-                                        <EventTrigger RoutedEvent="Button.Click">
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2d2d2"
-                                                        Duration="0:0:0.1"/>
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </EventTrigger>
-                                        <Trigger Property="IsEnabled" Value="False">
-                                            <Setter TargetName="cp" Property="TextElement.Foreground" Value="LightGray"/>
-                                            <Setter Property="Background" Value="Transparent"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Button.Template>
+                          Foreground="{StaticResource DefaultColorBrush}"
+                            Command="{Binding MoveBackCommand}"
+                                Template="{DynamicResource SymbolIconButton}">
                         </Button>
                         <Button Height="48"
                               Width="48"
@@ -501,63 +180,14 @@
                           FontFamily="Segoe mdl2 assets"
                           Content=""
                           FontSize="16"
-                          Foreground="Black"
-                            Command="{Binding MoveForwardCommand}">
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding Background}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                                        <ContentPresenter VerticalAlignment="Center" Name="cp"
-                                              HorizontalAlignment="Left"
-                                              Margin="14,0"
-                                              TextElement.Foreground="{TemplateBinding Foreground}"
-                                              TextElement.FontFamily="{TemplateBinding FontFamily}"
-                                              TextElement.FontSize="{TemplateBinding FontSize}"/>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsEnabled" Value="True">
-                                            <Setter Property="Background" Value="Transparent"/>
-                                        </Trigger>
-                                        <EventTrigger RoutedEvent="MouseEnter">
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2e9ff"
-                                                        Duration="0:0:0.2"/>
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </EventTrigger>
-                                        <EventTrigger RoutedEvent="MouseLeave">
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="Transparent"
-                                                        Duration="0:0:0.2"/>
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </EventTrigger>
-                                        <EventTrigger RoutedEvent="Button.Click">
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2d2d2"
-                                                        Duration="0:0:0.1"/>
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </EventTrigger>
-                                        <Trigger Property="IsEnabled" Value="False">
-                                            <Setter TargetName="cp" Property="TextElement.Foreground" Value="LightGray"/>
-                                            <Setter Property="Background" Value="Transparent"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Button.Template>
+                          Foreground="{StaticResource DefaultColorBrush}"
+                            Command="{Binding MoveForwardCommand}"
+                                Template="{DynamicResource SymbolIconButton}">
                         </Button>
                     </StackPanel>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center">
                         <TextBlock Margin="0,0,0,0" FontFamily="Segoe UI"
-                           Foreground="Black"
+                           Foreground="{StaticResource DefaultColorBrush}"
                            FontSize="16"
                            FontWeight="Bold"
                            Text="{Binding Name}"
@@ -587,7 +217,7 @@
             </Grid.RowDefinitions>
             
             <ScrollViewer Grid.Row="1" Name="Viewer2" Width="Auto" Padding="48,-48,0,0"
-                              VerticalScrollBarVisibility="Auto">
+                              VerticalScrollBarVisibility="Hidden">
                 <StackPanel Grid.Row="1" Margin="0,48,0,0">
                     <Border Margin="4"
                                     Padding="5"
@@ -678,54 +308,7 @@
                           FontFamily="Segoe mdl2 assets"
                           Content=""
                           FontSize="16"
-                          Foreground="White">
-                    <ToggleButton.Template>
-                        <ControlTemplate TargetType="ToggleButton">
-                            <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding Background}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Left"
-                                              Margin="14,0"
-                                              TextElement.Foreground="Black"
-                                              TextElement.FontFamily="{TemplateBinding FontFamily}"
-                                              TextElement.FontSize="{TemplateBinding FontSize}"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsEnabled" Value="True">
-                                    <Setter Property="Background" Value="Transparent"/>
-                                    <Setter Property="Foreground" Value="Black"/>
-                                </Trigger>
-                                <EventTrigger RoutedEvent="MouseEnter">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2e9ff"
-                                                        Duration="0:0:0.2"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="MouseLeave">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="Transparent"
-                                                        Duration="0:0:0.2"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="Button.Click">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                        To="#d2d2d2"
-                                                        Duration="0:0:0.1"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </ToggleButton.Template>
+                              Template="{DynamicResource ShowHidePaneToggleButton}">
                 </ToggleButton>
                 <Border Background="#DDFFFFFF" Margin="48,0,0,0"/>
                 <TextBlock Margin="48,0,0,0" FontFamily="Segoe UI"
@@ -735,7 +318,39 @@
                            Text="Preview"
                            VerticalAlignment="Center"/>
             </Grid>
-
+            <StackPanel Grid.Row="1" Orientation="Vertical"
+                        VerticalAlignment="Top">
+                <Button Height="48"
+                              Width="48"
+                              HorizontalAlignment="Left"
+                          FontFamily="Segoe mdl2 assets"
+                          Content=""
+                          FontSize="16"
+                          Foreground="Black"
+                                    Command="{Binding CloseCommand}"
+                                    CommandParameter="{Binding}"
+                                    Template="{DynamicResource SymbolIconButton}"
+                        ToolTip="Close">
+                </Button>
+                <Button Height="48"
+                              Width="48"
+                              HorizontalAlignment="Left"
+                          FontFamily="Segoe mdl2 assets"
+                          Content=""
+                          FontSize="16"
+                          Foreground="Black"
+                                    Command="{Binding TakeFileCommand}"
+                                   Template="{DynamicResource SymbolIconButton}"
+                        ToolTip="Accept">
+                    <Button.CommandParameter>
+                        <MultiBinding Converter="{valueconverters:MultiCommandParametersConverter}">
+                            <Binding Path="IsSavingMode"/>
+                            <Binding Path="SelectedFileEntityViewModel"/>
+                            <Binding ElementName="NameOfNewFile" Path="Text"/>
+                        </MultiBinding>
+                    </Button.CommandParameter>
+                </Button>
+            </StackPanel>
         </Grid>
 
         

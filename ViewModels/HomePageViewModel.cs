@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Aquilion.Notepad.ViewModels
 {
@@ -23,6 +24,7 @@ namespace Aquilion.Notepad.ViewModels
         public string Name { get; set; }
         public string IsChanged { get; set; } = "";
         public string? FileContent { get; set; }
+        public string? SelectedText { get; set; }
         #endregion
 
         #region Constructor
@@ -33,7 +35,13 @@ namespace Aquilion.Notepad.ViewModels
             CreateCommand = new DelegateCommand<object>(OnCreateFile);
             OpenCommand = new DelegateCommand<object>(OnOpenFile);
             SaveCommand = new DelegateCommand<object>(OnSaveFile);
+
+            CopyCommand = new DelegateCommand<object>(OnCopy);
+            PasteCommand = new DelegateCommand<object>(OnPaste);
+            CutCommand = new DelegateCommand<object>(OnCut);
+
             OpenInDefaultNotepadCommand = new DelegateCommand<object>(OnOpenInWindowsNotepad);
+            
         }
         #endregion
 
@@ -42,6 +50,9 @@ namespace Aquilion.Notepad.ViewModels
         public DelegateCommand<object> OpenCommand { get; }
         public DelegateCommand<object> OpenInDefaultNotepadCommand { get; }
         public DelegateCommand<object> SaveCommand { get; }
+        public DelegateCommand<object> CopyCommand { get; }
+        public DelegateCommand<object> PasteCommand { get; }
+        public DelegateCommand<object> CutCommand { get; }
         #endregion
 
         #region Commands Methods
@@ -63,8 +74,7 @@ namespace Aquilion.Notepad.ViewModels
             {
                 _mainWindowViewModel.Pages.Insert(0, _mainWindowViewModel.openFilePageViewModel);
             }
-            var open = _mainWindowViewModel.openFilePageViewModel;
-            _mainWindowViewModel.ActiveSelectedPageViewModel = open;
+            _mainWindowViewModel.navigationPaneViewModel.NavigateCommand.Execute(_mainWindowViewModel.openFilePageViewModel);
         }
         private void OnSaveFile(object obj)
         {
@@ -75,13 +85,28 @@ namespace Aquilion.Notepad.ViewModels
             {
                 _mainWindowViewModel.Pages.Insert(0, _mainWindowViewModel.openFilePageViewModel);
             }
-            var save = _mainWindowViewModel.openFilePageViewModel;
-            _mainWindowViewModel.ActiveSelectedPageViewModel = save;
+            _mainWindowViewModel.navigationPaneViewModel.NavigateCommand.Execute(_mainWindowViewModel.openFilePageViewModel);
         }
         private void OnOpenInWindowsNotepad(object obj)
         {
             Process.Start("notepad.exe", FileName);
             Process.GetCurrentProcess().Kill();
+        }
+        private void OnCopy(object obj)
+        {
+            Clipboard.SetText((string)obj);
+        }
+        private void OnCut(object obj)
+        {
+            Clipboard.SetText((string)obj);
+            FileContent.Trim(obj.ToString().ToCharArray());
+        }
+        private void OnPaste(object obj)
+        {
+            if (Clipboard.ContainsText())
+            {
+                FileContent = FileContent + @Clipboard.GetText();
+            }
         }
         #endregion
 
