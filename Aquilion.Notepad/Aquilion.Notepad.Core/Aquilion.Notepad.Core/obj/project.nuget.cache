@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "9W1WxUwxmdPZtEawyRMDGOp/VZWeGQnNHIzR/2bNiH9flj5O8DZYpzdNUrz1JwjA2jh/zcutP/43sQKfCh+Xkw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dmitrij\\source\\repos\\AquilionProject\\Aquilion\\Aquilion.Notepad\\Aquilion.Notepad.Core\\Aquilion.Notepad.Core\\Aquilion.Notepad.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dmitrij\\.nuget\\packages\\fody\\6.5.1\\fody.6.5.1.nupkg.sha512",
+    "C:\\Users\\Dmitrij\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
+    "C:\\Users\\Dmitrij\\.nuget\\packages\\propertychanged.fody\\3.4.0\\propertychanged.fody.3.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}

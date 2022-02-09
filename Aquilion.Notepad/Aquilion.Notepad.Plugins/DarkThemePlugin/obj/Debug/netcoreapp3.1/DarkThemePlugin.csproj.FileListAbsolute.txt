@@ -1,0 +1,11 @@
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Plugins\DarkThemePlugin\bin\Debug\netcoreapp3.1\DarkThemePlugin.deps.json
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Plugins\DarkThemePlugin\bin\Debug\netcoreapp3.1\DarkThemePlugin.dll
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Plugins\DarkThemePlugin\bin\Debug\netcoreapp3.1\DarkThemePlugin.pdb
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Plugins\DarkThemePlugin\obj\Debug\netcoreapp3.1\DarkThemePlugin.csproj.AssemblyReference.cache
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Plugins\DarkThemePlugin\obj\Debug\netcoreapp3.1\DarkThemePlugin.g.resources
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Plugins\DarkThemePlugin\obj\Debug\netcoreapp3.1\DarkThemePlugin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Plugins\DarkThemePlugin\obj\Debug\netcoreapp3.1\DarkThemePlugin.AssemblyInfoInputs.cache
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Plugins\DarkThemePlugin\obj\Debug\netcoreapp3.1\DarkThemePlugin.AssemblyInfo.cs
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Plugins\DarkThemePlugin\obj\Debug\netcoreapp3.1\DarkThemePlugin.csproj.CoreCompileInputs.cache
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Plugins\DarkThemePlugin\obj\Debug\netcoreapp3.1\DarkThemePlugin.dll
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Plugins\DarkThemePlugin\obj\Debug\netcoreapp3.1\DarkThemePlugin.pdb

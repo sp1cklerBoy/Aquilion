@@ -1,0 +1,11 @@
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Core\Aquilion.Notepad.Core\bin\Debug\netcoreapp3.1\Aquilion.Notepad.Core.deps.json
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Core\Aquilion.Notepad.Core\bin\Debug\netcoreapp3.1\Aquilion.Notepad.Core.dll
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Core\Aquilion.Notepad.Core\bin\Debug\netcoreapp3.1\Aquilion.Notepad.Core.pdb
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Core\Aquilion.Notepad.Core\obj\Debug\netcoreapp3.1\Aquilion.Notepad.Core.csproj.AssemblyReference.cache
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Core\Aquilion.Notepad.Core\obj\Debug\netcoreapp3.1\Aquilion.Notepad.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Core\Aquilion.Notepad.Core\obj\Debug\netcoreapp3.1\Aquilion.Notepad.Core.AssemblyInfoInputs.cache
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Core\Aquilion.Notepad.Core\obj\Debug\netcoreapp3.1\Aquilion.Notepad.Core.AssemblyInfo.cs
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Core\Aquilion.Notepad.Core\obj\Debug\netcoreapp3.1\Aquilion.Notepad.Core.csproj.CoreCompileInputs.cache
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Core\Aquilion.Notepad.Core\obj\Debug\netcoreapp3.1\Aquilion.Notepad.Core.csproj.Fody.CopyLocal.cache
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Core\Aquilion.Notepad.Core\obj\Debug\netcoreapp3.1\Aquilion.Notepad.Core.dll
+C:\Users\Dmitrij\source\repos\AquilionProject\Aquilion\Aquilion.Notepad\Aquilion.Notepad.Core\Aquilion.Notepad.Core\obj\Debug\netcoreapp3.1\Aquilion.Notepad.Core.pdb
