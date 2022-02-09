@@ -56,11 +56,12 @@ namespace Aquilion.Notepad.ViewModels
         #endregion
 
         #region Commands Methods
+        
         private void OnCreateFile(object obj)
-        {
+        {   
             if(!File.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\[notepad_temp]New Document"))
             {
-                File.Delete($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\[notepad_temp]New Document");
+              //Create cache file 
                 File.Create($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\[notepad_temp]New Document");
             }
             TryParseTextAsync(new FileViewModel(new FileInfo($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\[notepad_temp]New Document")));
